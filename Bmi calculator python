@@ -1,0 +1,35 @@
+from tkinter import *
+
+
+class App(Tk):
+    def __init__(self):
+        self.root = Tk()
+        self.root.title("BMI CALCULATOR BY SAINT")
+
+
+        self.namespace = Label(self.root, text='enter your name:').pack()
+        #print(self.namespace)
+        self.name_inputblock_1 = Entry(self.root, print(self.namespace)).pack()
+
+        self.weight_label = Label(self.root, text='Enter your weight').pack()
+        self.weight = StringVar()
+        self.weight_inputblock_1 = Entry(self.root,textvariable=self.weight).pack()
+
+        self.height_label=Label(self.root, text="Enter your height").pack()
+        self.height = StringVar()
+        self.height_inputblock_1= Entry(self.root,textvariable=self.height).pack()
+
+        self.button = StringVar()
+        Button(self.root, text="Calculate", textvariable= self.button, command=self.calculation()).pack()
+
+        self.root.mainloop()
+
+    def calculation(self):
+        name = input(" ")
+        weight = float(input(": "))
+        height= float(input("Enter your height: "))
+        bmi= weight/ (height**2)
+        print(f"{name} has a BMI score of {bmi}")
+
+
+App()
